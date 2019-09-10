@@ -37,6 +37,7 @@ const hook = new Webhook("webhookID", "webhookToken");
 
 let Builder = new EmbedBuilder()
 .setTitle("Title")
+.setURL("https://github.com/Sworder71/discord-whook.js")
 .setColor(0xffffff)
 .setAuthor("Author", "Author imageURL")
 .setThumbnail("Thumbnail imageURL")
