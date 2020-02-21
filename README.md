@@ -3,13 +3,11 @@
 A simple discord webhook wrapper.
 
 #### Installation:
-*Using NPM*
+**Using NPM:**
+`npm install github:Ernest05/discord-whook.js`
 
-*dev version:*
-`npm i github:Sworder71/discord-whook.js`
-
-*stable version:*
-`npm i discord-whook.js`
+**Using Yarn:
+`yarn add github:Ernest05/discord-whook.js`
 
 <hr>
 
@@ -19,7 +17,7 @@ A simple discord webhook wrapper.
 >- Custom your webhook name/avatar
 
 #### Examples:
->__NOTE__: If you want disable custom content/username/avatar replace **strings** to **null**
+>__NOTE__: If you want disable custom content/username/avatar replace **strings** to **undefined**
 
 - Send a simple message 
 ```js
@@ -30,22 +28,22 @@ hook.send("content", "username", "avatarURL");
 ```
 
 - Send an Embed with a simple Embed builder
->Do not use Discord RichEmbed! It's an Embed builder only for webhook!<br>
-```js
+>**Do not use Discord RichEmbed/MessageEmbed! You have to use the EmbedBuilder provided with the module!**<br>
+```JS
 const { Webhook, EmbedBuilder } = require("discord-whook.js");
 const hook = new Webhook("webhookID", "webhookToken");
+const embed = new EmbedBuilder()
+  .setColor(0xffffff)
+  .setTitle("Title")
+  .setAuthor("Author", "Author imageURL")
+  .setURL("Some imageURL")
+  .setDescription("Description")
+  .setThumbnail("Thumbnail imageURL")
+  .setImage("ImageURL")
+  .addField("Name of field", "Value of field", false)
+  .setTimestamp()
+  .setFooter("Footer text", "Footer imageURL")
+  .embed;
 
-let Builder = new EmbedBuilder()
-.setTitle("Title")
-.setURL("https://github.com/Sworder71/discord-whook.js")
-.setColor(0xffffff)
-.setAuthor("Author", "Author imageURL")
-.setThumbnail("Thumbnail imageURL")
-.setDescription("Description")
-.addField("Name of field", "Value of field", false)
-.setImage("ImageURL")
-.setFooter("Footer text", "Footer imageURL")
-.setTimestamp();
-
-hook.send("content", "username", "avatarURL", Builder.embed);
+hook.send("content", "username", "avatarURL", embed);
 ```
