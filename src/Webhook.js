@@ -1,19 +1,24 @@
-"use strict";
+'use strict';
 
-const axios = require("axios");
-const baseURL = "https://canary.discordapp.com/api/webhooks";
+const axios = require('axios');
+const baseURL = 'https://discordapp.com/api/webhooks';
 
 class Webhook {
     /**
      * @constructor
-     * @param {string} webhookid The webhook ID
-     * @param {string} webhooktoken The webhook Token
+     * @param {string} webhookID The webhook ID
+     * @param {string} webhookToken The webhook Token
      */
-    constructor(webhookid, webhooktoken) {
-        if(!webhookid) throw new Error("[DiscordWebhook] No webhookID found!");
-            this.webhookid = webhookid;
-        if(!webhooktoken) throw new Error("[DiscordWebhook] No webhookToken found!");
-            this.webhooktoken = webhooktoken;
+    constructor(webhookID, webhookToken) {
+        if(!webhookID) {
+            throw new Error('No webhook ID found!');
+        }
+        if(!webhookToken) {
+            throw new Error('No webhook token found!');
+        }
+        
+        this.webhookID = webhookID;
+        this.webhookToken = webhookToken;
     }
 
     /**
@@ -22,28 +27,29 @@ class Webhook {
      * @param {string} username The webhook username
      * @param {string} avatarUrl The url of the webhook avatar
      * @param {Array} embed The embed
-     * @returns {Promise<Object>}
+     * @returns {Promise<Object>} The sent webhook
      */
     send(message = null, username = null, avatarUrl = null, embed = []) {
-        if(!message && embed.length === 0) throw new Error("[DiscordWebhook] You cannot send an empty message.");
-            return new Promise(async(resolve, reject) => {
-                await axios({
-                    method: "post", 
-                    url: `${baseURL}/${this.webhookid}/${this.webhooktoken}`,
-                    data: {
-                        username,
-                        avatar_url: avatarUrl,
-                        content: message,
-                        embeds: embed
-                    }
-                })
-                    .then(() => {
-                        console.log("[DiscordWebhook] message sent!");
-                    })
-                        .catch((err) => {
-                            if(err) reject(new Error(`[DiscordWebhook] Error:\n${err}`));
-                        });
+        if(!message && embed.length === 0) {
+            throw new Error('Cannot send an empty message!');
+        }
+        
+        return new Promise(async () => {
+            await axios({
+                method: 'post', 
+                url: `${baseURL}/${this.webhookID}/${this.webhookToken}`,
+                data: {
+                    username,
+                    avatar_url: avatarUrl,
+                    content: message,
+                    embeds: embed
+                }
+            }).catch((err) => {
+                if(err) {
+                    reject(new Error(err));
+                }
             });
+        });
     }
 };
 
