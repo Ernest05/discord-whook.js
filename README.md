@@ -6,7 +6,7 @@ A simple discord webhook wrapper.
 **Using NPM:**
 `npm install github:Ernest05/discord-whook.js`
 
-**Using Yarn:
+**Using Yarn:**
 `yarn add github:Ernest05/discord-whook.js`
 
 <hr>
