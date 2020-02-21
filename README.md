@@ -21,29 +21,32 @@ A simple discord webhook wrapper.
 
 - Send a simple message 
 ```js
-const { Webhook } = require("discord-whook.js");
-const hook = new Webhook("webhookID", "webhookToken");
+'use strict';
 
-hook.send("content", "username", "avatarURL");
+const { Webhook } = require('discord-whook.js');
+const hook = new Webhook('webhookID', 'webhookToken');
+
+hook.send('content', 'username', 'avatarURL');
 ```
 
 - Send an Embed with a simple Embed builder
 >**Do not use Discord RichEmbed/MessageEmbed! You have to use the EmbedBuilder provided with the module!**<br>
 ```JS
-const { Webhook, EmbedBuilder } = require("discord-whook.js");
-const hook = new Webhook("webhookID", "webhookToken");
+'use strict';
+
+const { Webhook, EmbedBuilder } = require('discord-whook.js');
+const hook = new Webhook('webhookID', 'webhookToken');
 const embed = new EmbedBuilder()
   .setColor(0xffffff)
-  .setTitle("Title")
-  .setAuthor("Author", "Author imageURL")
-  .setURL("Some imageURL")
-  .setDescription("Description")
-  .setThumbnail("Thumbnail imageURL")
-  .setImage("ImageURL")
+  .setTitle('Title')
+  .setAuthor('Author', 'Author imageURL', 'Some URL if you wish')
+  .setDescription('Description')
+  .setThumbnail('Thumbnail imageURL')
+  .setImage('ImageURL')
   .addField("Name of field", "Value of field", false)
   .setTimestamp()
-  .setFooter("Footer text", "Footer imageURL")
+  .setFooter('Footer text', 'Footer imageURL if you wish')
   .embed;
 
-hook.send("content", "username", "avatarURL", embed);
+hook.send('content', 'username', 'avatarURL', embed);
 ```
