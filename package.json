@@ -1,27 +1,27 @@
 {
     "name": "discord-whook.js",
-    "version": "0.0.5",
-    "description": "A simple discord webhook wrapper.",
+    "version": "1.0.0",
+    "description": "A simple discord webhook wrapper that allows messages and embeds sending.",
     "main": "index.js",
     "scripts": {
       "test": "node index"
     },
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/Sworder71/discord-whook.js.git"
+      "url": "git+https://github.com/Ernest05/discord-whook.js.git"
     },
     "keywords": [
       "javascript",
       "webhook",
       "discord"
     ],
-    "author": "Sworder",
+    "author": "Ernest",
     "license": "Apache-2.0",
     "bugs": {
-      "url": "https://github.com/Sworder71/discord-whook.js/issues"
+      "url": "https://github.com/Ernest05/discord-whook.js/issues"
     },
-    "homepage": "https://github.com/Sworder71/discord-whook.js#readme",
+    "homepage": "https://github.com/Ernest05/discord-whook.js#readme",
     "dependencies": {
-      "axios": "^0.18.0"
+      "node-fetch": "^2.6.0"
     }
 }
