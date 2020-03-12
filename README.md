@@ -43,7 +43,7 @@ const embed = new EmbedBuilder()
   .setDescription('Description')
   .setThumbnail('Thumbnail imageURL')
   .setImage('ImageURL')
-  .addField("Name of field", "Value of field", false)
+  .addField("Name of field", "Value of field")
   .setTimestamp()
   .setFooter('Footer text', 'Footer imageURL if you wish')
   .toJSON();
