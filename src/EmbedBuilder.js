@@ -195,4 +195,12 @@ module.exports = class EmbedBuilder {
 
         return this;
     }
+    
+    /**
+     * Converts the EmbedBuilder to an JSON object
+     * @returns {Object} The JSON embed object
+     */
+    toJSON () {
+        return JSON.stringify(this.embed);
+    }
 };
