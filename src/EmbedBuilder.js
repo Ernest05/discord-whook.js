@@ -201,6 +201,6 @@ module.exports = class EmbedBuilder {
      * @returns {Object} The JSON embed object
      */
     toJSON () {
-        return JSON.stringify(this.embed);
+        return this.embed;
     }
 };
