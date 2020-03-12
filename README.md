@@ -46,7 +46,7 @@ const embed = new EmbedBuilder()
   .addField("Name of field", "Value of field", false)
   .setTimestamp()
   .setFooter('Footer text', 'Footer imageURL if you wish')
-  .embed;
+  .toJSON();
 
 hook.send('content', 'username', 'avatarURL', embed);
 ```
