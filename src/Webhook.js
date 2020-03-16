@@ -29,7 +29,7 @@ module.exports = class Webhook {
      * @returns {Promise<Object>} The sent webhook
      */
     send (content = undefined, username = undefined, avatarURL = undefined, embed = []) {
-        if (!message && embed.length === 0) {
+        if (!content && embed.length === 0) {
             throw new Error('Cannot send an empty message!');
         }
 
@@ -40,7 +40,7 @@ module.exports = class Webhook {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    content: message,
+                    content: content,
                     username: username,
                     avatar_url: avatarURL,
                     embeds: embed
