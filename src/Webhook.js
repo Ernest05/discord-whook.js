@@ -22,14 +22,13 @@ module.exports = class Webhook {
 
     /**
      * Send a message with a webhook
-     * @param {Object} options The options for the webhook
-     * @param {string} options.content The message content
-     * @param {string} options.username The webhook username
-     * @param {string} options.avatarURL The url of the webhook avatar
-     * @param {Array} options.embed The embed
+     * @param {string} content The message content
+     * @param {string} username The webhook username
+     * @param {string} avatarURL The url of the webhook avatar
+     * @param {Array} embed The embed
      * @returns {Promise<Object>} The sent webhook
      */
-    send (options = { content: undefined, username: undefined, avatarURL: undefined, embed: [] }) {
+    send (content = undefined, username = undefined, avatarURL = undefined, embed = []) {
         if (!message && embed.length === 0) {
             throw new Error('Cannot send an empty message!');
         }
@@ -41,10 +40,10 @@ module.exports = class Webhook {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    content: options.message,
-                    username: options.username,
-                    avatar_url: options.avatarURL,
-                    embeds: options.embed
+                    content: message,
+                    username: username,
+                    avatar_url: avatarURL,
+                    embeds: embed
                 })
             }).catch(error => {
                 throw new Error(`Webhook sending error: ${error}`);
